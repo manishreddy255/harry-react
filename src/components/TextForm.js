@@ -15,6 +15,7 @@ export default class TextForm extends Component {
         this.setState({
             text: this.state.text.toUpperCase(),
         })
+        this.props.alert(`${this.state.text.length} characters are converted to upper case`, "danger");
     }
 
     handleOnChange = (event) => {
@@ -27,24 +28,37 @@ export default class TextForm extends Component {
         this.setState({
             text: this.state.text.split(" ").map(word => word[0].toUpperCase() + word.slice(1).toLowerCase()).join(" ")
         })
+        this.props.alert(`${this.state.text.length} characters are converted to camel case`, "success");
     }
 
     handleLowerClick = (event) => {
         this.setState({
             text: this.state.text.toLowerCase()
         })
+
+        this.props.alert(`${this.state.text.length} characters are converted to lower case`, "success");
     }
 
     handleClear = () => {
         this.setState({
             text: "",
         })
+        this.props.alert("Text is cleared", "success");
     }
 
     handleChainCase = () => {
         this.setState({
             text: this.state.text.split(" ").join("_")
         })
+        this.props.alert(`${this.state.text.length} characters are converted to chain case`, "success");
+    }
+
+    handleWords = (text) => {
+        if (text.length > 0) {
+            return text.split(" ").length
+        } else {
+            return 0
+        }
     }
 
 
@@ -76,7 +90,7 @@ export default class TextForm extends Component {
 
                     <div className={`container my-3 text-${this.props.mode === "light" ? 'dark' : "light"}`}>
                         <h1>your Text summary</h1>
-                        <p>{this.state.text.split(" ").length} word , {this.state.text.length} characters</p>
+                        <p>{this.handleWords(this.state.text)} word , {this.state.text.length} characters</p>
                         <p>{0.008 * this.state.text.split(" ").length} minutes are taken to read this</p>
                         <h3> Preview </h3>
                         <p> {this.state.text.length > 0 ? this.state.text : "enter something"} </p>

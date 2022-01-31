@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
-export default class Navbar extends Component {
+class Navbar extends Component {
 
     constructor(props) {
         super(props);
@@ -33,7 +32,7 @@ export default class Navbar extends Component {
                                 <button className="btn btn-outline-success" type="submit">Search</button>
                             </form> */}
                             <div className={`form-check form-switch text-${this.props.mode === "dark" ? "light" : 'dark'}`}>
-                                <input onClick={this.props.toggleMode} className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                                <input onClick={this.props.toggleMode} className={`form-check-input btn-${this.props.mode === "light" ? "secondary" : "light"}`} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                                 <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{this.props.mode === "light" ? "Enable Dark Mode" : "Enable Light Mode"}</label>
                             </div>
                         </div>
@@ -44,6 +43,7 @@ export default class Navbar extends Component {
     }
 }
 
+export default Navbar;
 
 Navbar.propTypes = {
     title: PropTypes.string.isRequired,
