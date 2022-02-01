@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/harry-react/static/css/main.31d6cfe0.css",
+    "main.js": "/harry-react/static/js/main.b421d115.js",
+    "index.html": "/harry-react/index.html",
+    "main.b421d115.js.map": "/harry-react/static/js/main.b421d115.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.b421d115.js"
+  ]
+}
