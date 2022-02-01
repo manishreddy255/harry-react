@@ -4,7 +4,6 @@ export default class TextForm extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props)
         this.state = {
             text: "",
         }
